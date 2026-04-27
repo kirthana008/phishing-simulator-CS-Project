@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Dashboard</title>
+    <!--<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">-->
+    <style>
+        body {
+            background-color: #eeeeee;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #00008B;
+            color: white;
+            padding: 1rem 2rem;
+        }
+
+        .header img {
+            height: 80px;
+            margin-right: 10px;
+        }
+
+        .header-title {
+            display: flex;
+            align-items: center;
+        }
+
+        .hamburger {
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .nav-menu {
+            display: none;
+            position: absolute;
+            right: 20px;
+            top: 60px;
+            width: 180px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 1rem;
+            list-style: none;
+            z-index: 1000;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #315076a5;
+        }
+
+        .nav-menu li {
+            margin: 10px 0;
+            font-size: 18px;
+            color: black;
+        }
+
+        .dashboard-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .dashboard-title {
+            margin-top: 2rem;
+            font-size: 50px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .dashboard-container {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .profile-box {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.3);
+            width: 300px;
+            font-size: 18px;
+        }
+
+        .profile-photo {
+            display: block;
+            margin: 0 auto 1rem auto;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .courses-box {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.3);
+            width: 600px;
+        }
+
+        .summary-grid {
+            display: flex;
+            justify-content: space-between;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .left-summary, .right-summary {
+            width: 50%;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .course-section ul {
+            list-style: none;
+            padding-left: 0;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-title">
+            <img src="{{ url_for('static', filename='unimas logo.png') }}" alt="Logo">
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+    </div>
+
+    <ul id="navMenu" class="nav-menu">
+        <li>Courses</li>
+        <li>Timetable</li>
+        <li>Assignments</li>
+        <li><strong><a href="{{ url_for('logout') }}">Logout</a></strong></li>
+    </ul>
+
+    <div class="dashboard-wrapper">
+        <div class="dashboard-title">Student Profile</div>
+
+        <div class="dashboard-container">
+            <div class="profile-box">
+                <img src="{{ url_for('static', filename='profile.jpg') }}" alt="Profile Photo" class="profile-photo">
+                <h3>Dorothy Lara Jean</h3>
+                <p><strong>Email:</strong> {{ email }}</p>
+                <p><strong>Student ID:</strong> 779084300</p>
+                <p><strong>Faculty:</strong> Faculty of Computer Science and Information Technology</p>
+            </div>
+
+            <div class="courses-box">
+                <div class="summary-grid">
+                    <div class="left-summary">
+                        <p><strong>Semester:</strong> 2024/2025</p>
+                        <p><strong>Program:</strong> Information Systems (UW6481002)</p>
+                        <p><strong>Status:</strong> Active</p>
+                    </div>
+
+                    <div class="right-summary">
+                        <p><strong>Credit Hours:</strong> 15</p>
+                        <p><strong>CGPA:</strong> 3.75</p>
+                        <p><strong>Current GPA:</strong> 3.85</p>
+                    </div>
+                </div>
+
+                <div class="course-section">
+                    <h3>Courses This Semester</h3>
+                    <ul>
+                        <li>CS101: Introduction to Programming</li>
+                        <li>CS205: Data Structures</li>
+                        <li>CS303: Web Development</li>
+                        <li>CS450: Cybersecurity Fundamentals</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('navMenu');
+            menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+        }
+    </script>
+</body>
+</html>

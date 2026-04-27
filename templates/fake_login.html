@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>University Portal Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="center-page">
+    <div class="container">
+        <img src="{{ url_for('static', filename='university_logo.png') }}" alt="University Logo" class="logo">
+        <h2>Student Portal Login</h2>
+        {% if error %}
+            <script>alert("{{ error }}");</script>
+        {% endif %}
+        <form method="post">
+            <input type="text" name="email" placeholder="University Email" required><br>
+            <input type="password" name="password" placeholder="Password" required><br>
+            <button type="submit">Login</button>
+        </form>
+        <p class="disclaimer">© 2025 FCSIT CS Project</p>
+    </div>
+</body>
+</html>
