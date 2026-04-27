@@ -1,2 +1,2 @@
 # phishing-simulator-CS-Project
-A phishing simulation web application developed using Flask and Python to demonstrate how attackers capture user credentials and how multi-factor authentication (MFA) can mitigate unauthorized access.
+Developed a phishing simulation web application using Flask and Python to replicate real-world credential harvesting attacks. The system captures user login credentials and implements a Time-based One-Time Password (TOTP) mechanism using PyOTP to simulate multi-factor authentication (MFA). This project demonstrates how phishing attacks operate while emphasizing the importance of MFA in preventing unauthorized access.
